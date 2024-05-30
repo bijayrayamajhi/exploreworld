@@ -1,0 +1,105 @@
+<% layout("layouts/boilerplate") -%>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+   <div class="container-fluid">
+     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+     </button>
+     <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          
+   <div class="filter navbar-nav"> 
+      <div>
+         <i class="fa-solid fa-fire"></i>
+         <p>Trending</p>
+      </div> 
+          
+   </div>
+
+   <div class="filter navbar-nav">
+      <div>
+         <i class="fa-solid fa-bed"></i>
+         <p>Rooms</p>
+      </div>     
+   </div>
+
+   <div class="filter navbar-nav">
+      <div>
+         <i class="fa-solid fa-mountain-city"></i>
+         <p>Iconic cities</p>
+      </div>    
+   </div>
+
+   <div class="filter navbar-nav">
+      <div>
+         <i class="fa-solid fa-mountain"></i>
+         <p>Mountains</p>
+      </div>     
+   </div>
+
+   <div class="filter navbar-nav">
+      <div>
+         <i class="fa-brands fa-fort-awesome"></i>
+         <p>Castles</p>
+      </div>    
+   </div>
+
+   <div class="filter navbar-nav">
+      <div>
+         <i class="fa-solid fa-person-swimming"></i>
+         <p>Swimming Pools</p>
+      </div> 
+   </div>
+
+   <div class="filter navbar-nav">
+      <div>
+         <i class="fa-solid fa-snowflake"></i>
+         <p>Arctic</p>
+      </div>   
+   </div>
+
+   <div class="filter navbar-nav">
+      <div>
+         <i class="fa-solid fa-campground"></i>
+         <p>Camping</p>
+      </div>
+      
+   </div>
+
+   <div class="taxswitch navbar-nav ms-auto">
+      <div class="form-check-reverse form-switch">
+         <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+         <label class="form-check-label" for="flexSwitchCheckDefault">Total Price After Tax</label>
+          </div>
+
+       </div>
+     </div>
+   </div>
+ </nav>
+
+
+
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-xs-1 mt-3">
+
+ <% for(listing of allListings){ %>
+        <div class="card col listing-card">
+            <a href="/listings/<%= listing._id %>" class="image-link">
+           <img src="<%= listing.image.url %>" class="card-img-top" alt="listing-image" style="height: 20rem">
+           </a>
+        <div class="card-body">
+           <p class="card-text"><b><%= listing.title %></b>
+             <br>
+              &#36; <%= listing.price.toLocaleString("en-US")%> /night
+              <span class="taxtoogle">
+               <i> &nbsp;&nbsp; +13% VAT </i>
+              </span> 
+          </p>
+       </div>
+    </div>
+
+ <% } %>
+
+</div>
+   
+<script src="/js/taxswitch.js"></script> 
+    
+
